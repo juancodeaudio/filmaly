@@ -427,6 +427,8 @@ button {
 /* Generic List (search, trending & category) */
 .genericList-container {
   display: flex;
+  width: 80%;
+  margin: 0 auto;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -436,6 +438,8 @@ button {
 .genericList-container .movie-container {
   display: inline-block;
   width: 47.5%;
+  max-width: 150px;
+  margin-bottom: 40px;
 }
 
 .genericList-container .movie-img {
