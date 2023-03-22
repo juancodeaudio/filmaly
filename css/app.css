@@ -1,30 +1,32 @@
 /* General */
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 :root {
   --primary: #141414;
-  --secondary: #B32855;
-  --secondary-dark: #312A2C;
+  --secondary: #b32855;
+  --secondary-dark: #312a2c;
   --primary-light: #212121;
-  --light: #E7E7E7;
+  --light: #e7e7e7;
   --primary-light-2: #888888;
-  --purple-light-1: #FBFAFB;
-  --purple-light-2: #EEEAF2;
-  --purple-medium-1: #AA83C8;
-  --purple-medium-2: #8B48BF;
-  --purple-medium-3: #5C218A;
-  --purple-dark-1: #3E0F64;
-  --purple-dark-2: #2A0646;
+  --purple-light-1: #fbfafb;
+  --purple-light-2: #eeeaf2;
+  --purple-medium-1: #aa83c8;
+  --purple-medium-2: #8b48bf;
+  --purple-medium-3: #5c218a;
+  --purple-dark-1: #3e0f64;
+  --purple-dark-2: #2a0646;
 
-  --yellow: #EECC75;
-  --green: #CAD297;
-  --aqua: #B7EAC5;
-  --lightBlue: #A2EEE5;
-  --darkBlue: #8EA2EA;
-  --red: #F09D9D;
+  --yellow: #eecc75;
+  --green: #cad297;
+  --aqua: #b7eac5;
+  --lightBlue: #a2eee5;
+  --darkBlue: #8ea2ea;
+  --red: #f09d9d;
 
-  --font-family-titles: 'Dosis', sans-serif;
-  --font-family-text: 'Red Hat Display', sans-serif;
+  --font-family-titles: "Dosis", sans-serif;
+  --font-family-text: "Red Hat Display", sans-serif;
   --font-weight-title1: 800;
   --font-weight-title2: 700;
   --font-weight-text1: 400;
@@ -45,12 +47,15 @@ body {
   padding: 0;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin: 0;
   padding: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-size: 24px;
   color: var(--secondary);
   font-family: var(--font-family-titles);
@@ -93,21 +98,31 @@ button {
   cursor: pointer;
 }
 
-
 /* Shared */
-.header-container, .trendingPreview-header, .categoriesTop-container, .categoriesPreview-container, .liked-header {
+.header-container,
+.genericPreview-header,
+.categoriesTop-container,
+.categoriesPreview-container,
+.liked-header {
   padding: 0 24px;
 }
 
-.trendingPreview-container, .categoriesTop-container, footer, .liked-container {
+.genericPreview-container,
+.categoriesTop-container,
+footer,
+.liked-container {
   margin-top: 35px;
 }
 
-.trendingPreview-header, .categoriesTop-title, .categoriesPreview-title, .liked-header {
+.genericPreview-header,
+.categoriesTop-title,
+.categoriesPreview-title,
+.liked-header {
   margin-bottom: 24px;
 }
 
-.movie-container, .movie-container__wider {
+.movie-container,
+.movie-container__wider {
   position: relative;
   cursor: pointer;
 }
@@ -125,10 +140,10 @@ button {
   animation: loading-skeleton infinite 1.5s;
 }
 .movie-container--loading:nth-child(2) {
-  animation-delay: .2s;
+  animation-delay: 0.2s;
 }
 .movie-container--loading:nth-child(3) {
-  animation-delay: .4s;
+  animation-delay: 0.4s;
 }
 
 .movie-container__wider--loading {
@@ -144,10 +159,10 @@ button {
   animation: loading-skeleton infinite 1.5s;
 }
 .movie-container__wider--loading:nth-child(2) {
-  animation-delay: .2s;
+  animation-delay: 0.2s;
 }
 .movie-container__wider--loading:nth-child(3) {
-  animation-delay: .4s;
+  animation-delay: 0.4s;
 }
 
 .movie-img {
@@ -167,7 +182,7 @@ button {
 }
 
 .movie-btn::before {
-  content: '🤍';
+  content: "🤍";
 }
 
 .movie-btn--liked {
@@ -175,7 +190,7 @@ button {
   box-shadow: 0px 0px 10px 2px var(--purple-dark-1);
 }
 .movie-btn--liked::before {
-  content: '💜';
+  content: "💜";
 }
 
 .categoriesTop-list {
@@ -194,7 +209,8 @@ button {
   white-space: nowrap;
 }
 
-.categories-list, .categoriesTop-list {
+.categories-list,
+.categoriesTop-list {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -215,19 +231,19 @@ button {
   animation: loading-skeleton infinite 1.5s;
 }
 .categoryTop-container--loading:nth-child(2) {
-  animation-delay: .2s;
+  animation-delay: 0.2s;
 }
 .categoryTop-container--loading:nth-child(3) {
-  animation-delay: .2s;
+  animation-delay: 0.2s;
 }
 .categoryTop-container--loading:nth-child(4) {
-  animation-delay: .2s;
+  animation-delay: 0.2s;
 }
 .categoryTop-container--loading:nth-child(5) {
-  animation-delay: .2s;
+  animation-delay: 0.2s;
 }
 .categoryTop-container--loading:nth-child(6) {
-  animation-delay: .2s;
+  animation-delay: 0.2s;
 }
 
 .category-container--loading {
@@ -242,7 +258,6 @@ button {
   margin-bottom: 15px;
   animation: loading-skeleton infinite 1.5s;
 }
-
 
 /* Header */
 .header-container {
@@ -260,8 +275,13 @@ button {
 }
 
 .header-container--long {
-  background-image: url('https://pics.filmaffinity.com/Deadpool-777527803-large.jpg');
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://pics.filmaffinity.com/Deadpool-777527803-large.jpg);
+  background-image: url("https://pics.filmaffinity.com/Deadpool-777527803-large.jpg");
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.35) 19.27%,
+      rgba(0, 0, 0, 0) 29.17%
+    ),
+    url(https://pics.filmaffinity.com/Deadpool-777527803-large.jpg);
   background-size: cover !important;
   height: 480px;
   position: fixed;
@@ -270,8 +290,12 @@ button {
 }
 
 .header-container--categoryView {
-  background: linear-gradient(180deg, rgba(238, 204, 117, 0.5) 0%, rgba(238, 204, 117, 0) 72.92%);
-} 
+  background: linear-gradient(
+    180deg,
+    rgba(238, 204, 117, 0.5) 0%,
+    rgba(238, 204, 117, 0) 72.92%
+  );
+}
 
 .header-title {
   padding-top: 10px;
@@ -346,19 +370,21 @@ button {
 }
 
 /* Trending */
-.trendingPreview-header, .liked-header {
+.genericPreview-header,
+.liked-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.trendingPreview-btn {
+.genericPreview-btn {
   border-radius: 8px;
   height: 32px;
   width: 72px;
 }
 
-.trendingPreview-movieList, .liked-movieList {
+.genericPreview-movieList,
+.liked-movieList {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
@@ -367,13 +393,13 @@ button {
   padding-bottom: 16px;
 }
 
-.trendingPreview-movieList .movie-container,
+.genericPreview-movieList .movie-container,
 .liked-movieList .movie-container {
   display: inline-block;
   margin-right: 8px;
 }
 
-.trendingPreview-movieList .movie-container .movie-img,
+.genericPreview-movieList .movie-container .movie-img,
 .liked-movieList .movie-container .movie-img {
   height: 225px;
   min-height: 225px;
@@ -446,7 +472,6 @@ button {
   width: 100%;
 }
 
-
 /* Movie Detail */
 .movieDetail-container {
   border-top-left-radius: 16px;
@@ -472,7 +497,7 @@ button {
   font-weight: var(--font-weight-title2);
 }
 .movieDetail-score::before {
-  content: '★';
+  content: "★";
   color: var(--yellow);
   padding-right: 4px;
 }
@@ -512,7 +537,6 @@ button {
   min-height: 187.5px;
   max-height: 187.5px;
 }
-  
 
 /* Footer */
 footer {
@@ -525,7 +549,6 @@ footer {
   align-items: center;
 }
 
-
 /* Navigation */
 .inactive {
   display: none;
@@ -533,7 +556,8 @@ footer {
 
 /* Animations */
 @keyframes loading-skeleton {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 100%;
   }
   50% {

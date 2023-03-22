@@ -1,236 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&family=Red+Hat+Display:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./css/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&family=Red+Hat+Display:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/app.css" />
 
-  <title>Filmaly</title>
-</head>
-<body>
-  <header id="header" class="header-container">
-    <!-- <span class="header-arrow inactive">&lt;</span> -->
-    <div class="header-burger"></div>
-    <h1 class="header-title">FILMALY</h1>
-    <h1 class="header-title header-title--categoryView inactive">Acción</h1>
-    <ul class="header-navbar">
-      <li><a href="#">Home</a></li>
-      <li>TV Shows</li>
-      <li>Movies</li>
-      <li><a href="#trends">Trendings</a></li>
-      <li>My list</li>
-    </ul>
-    <div class="header-options"></div>
-    <form id="searchForm" class="header-searchForm">
-      <input type="text" placeholder="Vengadores" />
-      <button id="searchBtn">🔍</button>
-    </form>
-  </header>
+    <title>Filmaly</title>
+  </head>
+  <body>
+    <header id="header" class="header-container">
+      <!-- <span class="header-arrow inactive">&lt;</span> -->
+      <div class="header-burger"></div>
+      <h1 class="header-title">FILMALY</h1>
+      <h1 class="header-title header-title--categoryView inactive">Acción</h1>
+      <ul class="header-navbar">
+        <li><a href="#">Home</a></li>
+        <li>TV Shows</li>
+        <li>Movies</li>
+        <li><a href="#trends">Trendings</a></li>
+        <li><a href="#my-list">My list</a></li>
+      </ul>
+      <div class="header-options"></div>
+      <form id="searchForm" class="header-searchForm">
+        <input type="text" placeholder="Vengadores" />
+        <button id="searchBtn">🔍</button>
+      </form>
+    </header>
 
-  <div class="header-sidebar"></div>
+    <div class="header-sidebar"></div>
 
-  <section id="latestPreview" class="latestPreview-container">
-    <article class="latestPreview-movieList">
-      <div class="movie-container__wider movie-container__wider--loading"></div>
-      <div class="movie-container__wider movie-container__wider--loading"></div>
-      <!-- MODEL -->
-      <div class="movie-container__wider movie-container__wider--loading">
-        <!-- <img
+    <section id="latestPreview" class="latestPreview-container">
+      <article id="latestPreviewMovieList" class="latestPreview-movieList">
+        <div
+          class="movie-container__wider movie-container__wider--loading"
+        ></div>
+        <div
+          class="movie-container__wider movie-container__wider--loading"
+        ></div>
+        <!-- MODEL -->
+        <div class="movie-container__wider movie-container__wider--loading">
+          <!-- <img
           src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
           class="movie-img"
           alt="Nombre de la película"
         /> -->
+        </div>
+      </article>
+    </section>
+
+    <section id="trendingPreview" class="genericPreview-container">
+      <div class="genericPreview-header">
+        <h2 class="genericPreview-title">Tendencias</h2>
+        <button class="genericPreview-btn">Ver más</button>
       </div>
-    </article>
-  </section>
 
-  <section id="trendingPreview" class="trendingPreview-container">
-    <div class="trendingPreview-header">
-      <h2 class="trendingPreview-title">Tendencias</h2>
-      <button class="trendingPreview-btn">Ver más</button>
-    </div>
+      <article id="trendingPreviewMovieList" class="genericPreview-movieList">
+        <div class="movie-container movie-container--loading"></div>
+        <div class="movie-container movie-container--loading"></div>
+        <!-- MODEL -->
+        <div class="movie-container movie-container--loading">
+          <!-- <img
+          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+          class="movie-img"
+          alt="Nombre de la película"
+        /> -->
+        </div>
+      </article>
+    </section>
 
-    <article class="trendingPreview-movieList">
+    <section id="categoriesTop" class="categoriesTop-container">
+      <h2 class="categoriesTop-title">Categorías</h2>
+
+      <article class="categoriesTop-list">
+        <div class="categoryTop-container">
+          <h3 id="id28" class="categoryTop-title">Romance</h3>
+        </div>
+        <div class="categoryTop-container">
+          <h3 id="id28" class="categoryTop-title">Romance</h3>
+        </div>
+        <!-- MODEL -->
+        <div class="categoryTop-container">
+          <h3 id="id28" class="categoryTop-title">Romance</h3>
+        </div>
+        <div class="categoryTop-container">
+          <h3 id="id28" class="categoryTop-title">Romance</h3>
+        </div>
+        <div class="categoryTop-container">
+          <h3 id="id28" class="categoryTop-title">Romance</h3>
+        </div>
+        <div class="categoryTop-container">
+          <h3 id="id28" class="categoryTop-title">Romance</h3>
+        </div>
+      </article>
+    </section>
+
+    <section id="categoriesPreview" class="categoriesPreview-container">
+      <h2 class="categoriesPreview-title">Categorías</h2>
+
+      <article class="categoriesPreview-list">
+        <div class="category-container category-container--loading">
+          <h3 id="id28" class="category-title">Romance</h3>
+        </div>
+        <div class="category-container category-container--loading">
+          <h3 id="id28" class="category-title">Romance</h3>
+        </div>
+        <!-- MODEL -->
+        <div class="category-container category-container--loading">
+          <h3 id="id28" class="category-title">Romance</h3>
+        </div>
+        <div class="category-container category-container--loading">
+          <h3 id="id28" class="category-title">Romance</h3>
+        </div>
+        <div class="category-container category-container--loading">
+          <h3 id="id28" class="category-title">Romance</h3>
+        </div>
+        <div class="category-container category-container--loading">
+          <h3 id="id28" class="category-title">Romance</h3>
+        </div>
+      </article>
+    </section>
+
+    <section id="liked" class="liked-container">
+      <div class="liked-header">
+        <h2 class="liked-title">Películas Favoritas</h2>
+      </div>
+      <article class="liked-movieList">
+        <div class="movie-container">
+          <img
+            src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+            class="movie-img"
+            alt="Nombre de la película"
+          />
+        </div>
+        <div class="movie-container">
+          <img
+            src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+            class="movie-img"
+            alt="Nombre de la película"
+          />
+        </div>
+        <div class="movie-container">
+          <img
+            src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+            class="movie-img"
+            alt="Nombre de la película"
+          />
+        </div>
+        <div class="movie-container">
+          <img
+            src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+            class="movie-img"
+            alt="Nombre de la película"
+          />
+        </div>
+      </article>
+    </section>
+
+    <section id="upcomingPreview" class="genericPreview-container">
+      <div class="genericPreview-header">
+        <h2 class="genericPreview-title">Proximamente</h2>
+        <button class="genericPreview-btn">Ver más</button>
+      </div>
+
+      <article id="upcomingPreviewMovieList" class="genericPreview-movieList">
+        <div class="movie-container movie-container--loading"></div>
+        <div class="movie-container movie-container--loading"></div>
+        <!-- MODEL -->
+        <div class="movie-container movie-container--loading">
+          <!-- <img
+          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+          class="movie-img"
+          alt="Nombre de la película"
+        /> -->
+        </div>
+      </article>
+    </section>
+
+    <section id="genericList" class="genericList-container inactive">
       <div class="movie-container movie-container--loading"></div>
       <div class="movie-container movie-container--loading"></div>
-      <!-- MODEL -->
       <div class="movie-container movie-container--loading">
         <!-- <img
-          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-          class="movie-img"
-          alt="Nombre de la película"
-        /> -->
-      </div>
-
-    </article>
-  </section>
-
-  <section id="categoriesTop" class="categoriesTop-container">
-    <h2 class="categoriesTop-title">Categorías</h2>
-
-    <article class="categoriesTop-list">
-      <div class="categoryTop-container">
-        <h3 id="id28" class="categoryTop-title">Romance</h3>
-      </div>
-      <div class="categoryTop-container">
-        <h3 id="id28" class="categoryTop-title">Romance</h3>
-      </div>
-      <!-- MODEL -->
-      <div class="categoryTop-container">
-        <h3 id="id28" class="categoryTop-title">Romance</h3>
-      </div>
-      <div class="categoryTop-container">
-        <h3 id="id28" class="categoryTop-title">Romance</h3>
-      </div>
-      <div class="categoryTop-container">
-        <h3 id="id28" class="categoryTop-title">Romance</h3>
-      </div>
-      <div class="categoryTop-container">
-        <h3 id="id28" class="categoryTop-title">Romance</h3>
-      </div>
-
-    </article>
-  </section>
-
-  <section id="categoriesPreview" class="categoriesPreview-container">
-    <h2 class="categoriesPreview-title">Categorías</h2>
-
-    <article class="categoriesPreview-list">
-      <div class="category-container category-container--loading">
-        <h3 id="id28" class="category-title">Romance</h3>
-      </div>
-      <div class="category-container category-container--loading">
-        <h3 id="id28" class="category-title">Romance</h3>
-      </div>
-      <!-- MODEL -->
-      <div class="category-container category-container--loading">
-        <h3 id="id28" class="category-title">Romance</h3>
-      </div>
-      <div class="category-container category-container--loading">
-        <h3 id="id28" class="category-title">Romance</h3>
-      </div>
-      <div class="category-container category-container--loading">
-        <h3 id="id28" class="category-title">Romance</h3>
-      </div>
-      <div class="category-container category-container--loading">
-        <h3 id="id28" class="category-title">Romance</h3>
-      </div>
-
-    </article>
-  </section>
-
-  <section id="liked" class="liked-container">
-    <div class="liked-header">
-      <h2 class="liked-title">Películas Favoritas</h2>
-    </div>
-    <article class="liked-movieList">
-      <div class="movie-container">
-        <img
-          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-          class="movie-img"
-          alt="Nombre de la película"
-        />
-      </div>
-      <div class="movie-container">
-        <img
-          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-          class="movie-img"
-          alt="Nombre de la película"
-        />
-      </div>
-      <div class="movie-container">
-        <img
-          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-          class="movie-img"
-          alt="Nombre de la película"
-        />
-      </div>
-      <div class="movie-container">
-        <img
-          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-          class="movie-img"
-          alt="Nombre de la película"
-        />
-      </div>
-    </article>
-  </section>
-
-  <section id="trendingPreview" class="trendingPreview-container">
-    <div class="trendingPreview-header">
-      <h2 class="trendingPreview-title">Proximamente</h2>
-      <button class="trendingPreview-btn">Ver más</button>
-    </div>
-
-    <article class="trendingPreview-movieList">
-      <div class="movie-container movie-container--loading"></div>
-      <div class="movie-container movie-container--loading"></div>
-      <!-- MODEL -->
-      <div class="movie-container movie-container--loading">
-        <!-- <img
-          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-          class="movie-img"
-          alt="Nombre de la película"
-        /> -->
-      </div>
-
-    </article>
-  </section>
-
-  <section id="genericList" class="genericList-container inactive">
-    <div class="movie-container movie-container--loading"></div>
-    <div class="movie-container movie-container--loading"></div>
-    <div class="movie-container movie-container--loading">
-      <!-- <img
         src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
         class="movie-img"
         alt="Nombre de la película"
       /> -->
-    </div>
-  </section>
-
-  <section id="movieDetail" class="movieDetail-container inactive">
-    <h1 class="movieDetail-title">Deadpool</h1>
-    <span class="movieDetail-score">7.6</span>
-    <p class="movieDetail-description">
-      Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.
-    </p>
-
-    <article class="categories-list">
-      <div class="category-container category-container--loading"></div>
-      <div class="category-container category-container--loading"></div>
-      <div class="category-container category-container--loading">
-        <!-- <h3 id="id28" class="category-title">Romance</h3> -->
       </div>
-    </article>
+    </section>
 
-    <article class="relatedMovies-container">
-      <h2 class="relatedMovies-title">Películas similares</h2>
+    <section id="movieDetail" class="movieDetail-container inactive">
+      <h1 class="movieDetail-title">Deadpool</h1>
+      <span class="movieDetail-score">7.6</span>
+      <p class="movieDetail-description">
+        Wisecracking mercenary Deadpool battles the evil and powerful Cable and
+        other bad guys to save a boy's life.
+      </p>
 
-      <div class="relatedMovies-scrollContainer">
-        <div class="movie-container movie-container--loading"></div>
-        <div class="movie-container movie-container--loading"></div>
-        <div class="movie-container movie-container--loading">
-          <!-- <img
+      <article class="categories-list">
+        <div class="category-container category-container--loading"></div>
+        <div class="category-container category-container--loading"></div>
+        <div class="category-container category-container--loading">
+          <!-- <h3 id="id28" class="category-title">Romance</h3> -->
+        </div>
+      </article>
+
+      <article class="relatedMovies-container">
+        <h2 class="relatedMovies-title">Películas similares</h2>
+
+        <div class="relatedMovies-scrollContainer">
+          <div class="movie-container movie-container--loading"></div>
+          <div class="movie-container movie-container--loading"></div>
+          <div class="movie-container movie-container--loading">
+            <!-- <img
             src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
             class="movie-img"
             alt="Nombre de la película"
           /> -->
+          </div>
         </div>
-      </div>
-    </article>
-  </section>
+      </article>
+    </section>
 
-  <footer>Hecho con amor en Platzi por @juandc</footer>
-  
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="./src/hidden.js"></script>
-  <script src="./src/nodes.js"></script>
-  <script src="./src/main.js"></script>
-  <script src="./src/navigation.js"></script>
-</body>
+    <footer>Hecho con amor en Platzi por @juandc</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./src/hidden.js"></script>
+    <script src="./src/nodes.js"></script>
+    <script src="./src/main.js"></script>
+    <script src="./src/navigation.js"></script>
+  </body>
 </html>
