@@ -104,15 +104,16 @@ function createMoviesLarge(
     console.log({ movie });
     const movieContainer = document.createElement("div");
     movieContainer.classList.add("movie-container__wider");
+    const movieShadow = document.createElement("div");
 
     const movieImg = document.createElement("img");
     movieImg.classList.add("movie-img");
     movieImg.setAttribute("alt", movie.title);
     movieImg.setAttribute(
       lazyLoad ? "data-img" : "src",
-      "https://image.tmdb.org/t/p/w300" + movie.poster_path
+      "https://image.tmdb.org/t/p/w1280" + movie.backdrop_path
     );
-    movieImg.addEventListener("click", () => {
+    movieContainer.addEventListener("click", () => {
       location.hash = `#movie=${movie.id}`;
     });
     movieImg.addEventListener("error", () => {
@@ -122,20 +123,21 @@ function createMoviesLarge(
       );
     });
 
-    const movieBtn = document.createElement("button");
-    movieBtn.classList.add("movie-btn");
-    likedMoviesList()[movie.id] && movieBtn.classList.add("movie-btn--liked");
-    movieBtn.addEventListener("click", () => {
-      movieBtn.classList.toggle("movie-btn--liked");
-      likeMovie(movie);
-    });
+    // const movieBtn = document.createElement("button");
+    // movieBtn.classList.add("movie-btn");
+    // likedMoviesList()[movie.id] && movieBtn.classList.add("movie-btn--liked");
+    // movieBtn.addEventListener("click", () => {
+    //   movieBtn.classList.toggle("movie-btn--liked");
+    //   likeMovie(movie);
+    // });
 
     if (lazyLoad) {
       lazyLoader.observe(movieImg);
     }
 
     movieContainer.appendChild(movieImg);
-    movieContainer.appendChild(movieBtn);
+    movieContainer.appendChild(movieShadow);
+    // movieContainer.appendChild(movieBtn);
     container.appendChild(movieContainer);
   }
   //   movies.forEach((movie) => {
@@ -203,6 +205,7 @@ function createCategories(categories, container) {
 async function getLatestMovies() {
   const { data } = await api("movie/popular");
   const movies = data.results;
+  console.log(data.results);
 
   createMoviesLarge(movies, latestMoviesPreviewList, true);
 }
