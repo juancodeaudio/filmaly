@@ -101,6 +101,15 @@ button {
   font-size: 14px;
   cursor: pointer;
 }
+a {
+  text-decoration: none;
+  color: var(--light);
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--primary-light-2);
+}
 
 /* Shared */
 .header-container,
@@ -270,6 +279,7 @@ footer,
   position: fixed;
   top: 0;
   left: 0;
+  height: 70px;
   width: 100%;
   z-index: 99;
   padding-top: 15px;
@@ -319,6 +329,34 @@ footer,
   list-style: none;
 }
 
+/* .header-navbar li:hover {
+  display: block;
+  border-bottom: solid 2px var(--light);
+  height: 40px;
+} */
+
+.header-navbar li {
+  position: relative;
+}
+
+.header-navbar li:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -30px;
+  left: 0;
+  background-color: var(--light);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.header-navbar li:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 /* .header-arrow {
   font-weight: var(--font-weight-text2);
   font-size: 36px;
@@ -334,20 +372,21 @@ footer,
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 12px;
   flex-wrap: nowrap;
 }
 
 .header-searchForm input {
-  height: 48px;
+  height: 45px;
   width: 100%;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
 }
 .header-searchForm button {
   width: 56px;
-  height: 48px;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  height: 45px;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
 }
 
 /* Latest */
