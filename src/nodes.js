@@ -30,10 +30,10 @@ const relatedMoviesContainer = document.querySelector(
 const likedMoviesListArticle = document.querySelector(".liked-movieList");
 
 // Elements
-const headerTitle = document.querySelector(".header-title");
+const headerTitle = document.querySelector(".seccion-title");
 // const arrowBtn = document.querySelector('.header-arrow');
 const headerCategoryTitle = document.querySelector(
-  ".header-title--categoryView"
+  ".seccion-title--categoryView"
 );
 
 const searchFormInput = document.querySelector("#searchForm input");

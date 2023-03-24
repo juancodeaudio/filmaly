@@ -123,7 +123,7 @@ function categoriesPage() {
   // arrowBtn.classList.remove('inactive');
   // arrowBtn.classList.remove('header-arrow--white');
   headerTitle.classList.add("inactive");
-  headerCategoryTitle.classList.remove("inactive");
+  headerCategoryTitle.classList.add("inactive");
   searchForm.classList.remove("inactive");
 
   latestSection.classList.add("inactive");
@@ -171,7 +171,7 @@ function homePage() {
   headerSection.style.background = "";
   // arrowBtn.classList.add('inactive');
   // arrowBtn.classList.remove('header-arrow--white');
-  headerTitle.classList.remove("inactive");
+  headerTitle.classList.add("inactive");
   headerCategoryTitle.classList.add("inactive");
   searchForm.classList.remove("inactive");
 
