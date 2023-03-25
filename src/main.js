@@ -55,6 +55,15 @@ function createMovies(
     const movieContainer = document.createElement("div");
     movieContainer.classList.add("movie-container");
 
+    const movieForeground = document.createElement("div");
+    movieForeground.classList.add("movie-foreground");
+
+    const movieTitle = document.createElement("p");
+    movieTitle.innerHTML = movie.title;
+
+    const movieRating = document.createElement("p");
+    movieRating.innerHTML = "⭐️  " + movie.vote_average.toFixed(1);
+
     const movieImg = document.createElement("img");
     movieImg.classList.add("movie-img");
     movieImg.setAttribute("alt", movie.title);
@@ -62,6 +71,9 @@ function createMovies(
       lazyLoad ? "data-img" : "src",
       "https://image.tmdb.org/t/p/w300" + movie.poster_path
     );
+    movieForeground.addEventListener("click", () => {
+      location.hash = `#movie=${movie.id}`;
+    });
     movieImg.addEventListener("click", () => {
       location.hash = `#movie=${movie.id}`;
     });
@@ -84,7 +96,10 @@ function createMovies(
       lazyLoader.observe(movieImg);
     }
 
+    movieForeground.appendChild(movieTitle);
+    movieForeground.appendChild(movieRating);
     movieContainer.appendChild(movieImg);
+    movieContainer.appendChild(movieForeground);
     movieContainer.appendChild(movieBtn);
     container.appendChild(movieContainer);
   });
@@ -102,9 +117,17 @@ function createMoviesLarge(
   for (let i = 0; i < 3; i++) {
     const movie = movies[i];
     console.log({ movie });
+    const year = movie.release_date.split("-")[0];
     const movieContainer = document.createElement("div");
     movieContainer.classList.add("movie-container__wider");
+
     const movieShadow = document.createElement("div");
+
+    const movieTitle = document.createElement("p");
+    movieTitle.innerHTML = movie.title;
+
+    const movieRating = document.createElement("p");
+    movieRating.innerHTML = `⭐️  ${movie.vote_average.toFixed(1)}  • ${year}`;
 
     const movieImg = document.createElement("img");
     movieImg.classList.add("movie-img");
@@ -137,46 +160,11 @@ function createMoviesLarge(
 
     movieContainer.appendChild(movieImg);
     movieContainer.appendChild(movieShadow);
+    movieContainer.appendChild(movieTitle);
+    movieContainer.appendChild(movieRating);
     // movieContainer.appendChild(movieBtn);
     container.appendChild(movieContainer);
   }
-  //   movies.forEach((movie) => {
-  //     const movieContainer = document.createElement("div");
-  //     movieContainer.classList.add("movie-container__wider");
-
-  //     const movieImg = document.createElement("img");
-  //     movieImg.classList.add("movie-img");
-  //     movieImg.setAttribute("alt", movie.title);
-  //     movieImg.setAttribute(
-  //       lazyLoad ? "data-img" : "src",
-  //       "https://image.tmdb.org/t/p/w300" + movie.poster_path
-  //     );
-  //     movieImg.addEventListener("click", () => {
-  //       location.hash = `#movie=${movie.id}`;
-  //     });
-  //     movieImg.addEventListener("error", () => {
-  //       movieImg.setAttribute(
-  //         "src",
-  //         "https://static.platzi.com/static/images/error/img404.png"
-  //       );
-  //     });
-
-  //     const movieBtn = document.createElement("button");
-  //     movieBtn.classList.add("movie-btn");
-  //     likedMoviesList()[movie.id] && movieBtn.classList.add("movie-btn--liked");
-  //     movieBtn.addEventListener("click", () => {
-  //       movieBtn.classList.toggle("movie-btn--liked");
-  //       likeMovie(movie);
-  //     });
-
-  //     if (lazyLoad) {
-  //       lazyLoader.observe(movieImg);
-  //     }
-
-  //     movieContainer.appendChild(movieImg);
-  //     movieContainer.appendChild(movieBtn);
-  //     container.appendChild(movieContainer);
-  //   });
 }
 
 function createCategories(categories, container) {
