@@ -6,7 +6,8 @@
 :root {
   --primary: #1a1d29;
   --secondary: #72c0e6;
-  --secondary-dark: #312a2c;
+  --secondary-dark: #37728f;
+  /* --secondary-dark: #312a2c; */
   --primary-light: #212121;
   --light: #e7e7e7;
   --primary-light-2: #888888;
@@ -404,24 +405,24 @@ footer,
 
 /* Latest */
 .latestPreview-container {
+  position: relative;
+  width: 100vw;
   height: 60vh;
   background-color: var(--primary);
+  overflow: hidden;
 }
 
 .latestPreview-movieList {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
+  position: absolute;
+  left: -175%;
+  width: 270%;
+  display: flex;
   height: 100%;
   padding-left: 24px;
   padding-bottom: 5px;
   padding-top: 90px;
-
-  scroll-snap-type: x proximity;
-}
-
-.latestPreview-movieList::-webkit-scrollbar {
-  display: none;
+  overflow: hidden;
+  animation: slide 16s infinite;
 }
 
 .latestPreview-movieList .movie-container__wider {
@@ -431,16 +432,14 @@ footer,
   background: #0d0e14;
   border-radius: 8px;
   height: 93%;
-  width: 80%;
-  overflow: hidden;
+  width: 70%;
   box-shadow: 10px 10px 28px #040507;
-  scroll-snap-align: center;
+
   transition-duration: 400ms;
 }
 
 .latestPreview-movieList .movie-container__wider:hover {
-  height: 95%;
-  width: 85%;
+  transform: scale(1.03);
 }
 
 .latestPreview-movieList .movie-container__wider div:nth-child(2) {
@@ -477,11 +476,11 @@ footer,
 .genericPreview-movieList,
 .liked-movieList {
   overflow-x: scroll;
-  overflow-y: hidden;
   white-space: nowrap;
-  height: 260px;
+  height: 300px;
   padding-left: 24px;
   padding-bottom: 25px;
+  padding-top: 25px;
 }
 
 .genericPreview-movieList::-webkit-scrollbar,
@@ -496,6 +495,12 @@ footer,
   box-shadow: 5px 10px 20px #040507;
   height: 225px;
   border-radius: 8px;
+  transition: 0.4s;
+}
+
+.genericPreview-movieList .movie-container:hover,
+.liked-movieList .movie-container:hover {
+  transform: scale(1.15);
 }
 
 .genericPreview-movieList .movie-container .movie-img,
@@ -527,6 +532,22 @@ footer,
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.categoryTop-container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
+  transition: 0.8s;
+}
+.categoryTop-container:hover {
+  transform: scale(1.15);
+  background: var(--secondary);
+  border: 4px solid var(--secondary-dark);
+}
+.categoryTop-container:hover h3 {
+  color: var(--secondary-dark);
 }
 
 /* Categories */
@@ -675,5 +696,23 @@ footer {
   }
   50% {
     opacity: 20%;
+  }
+}
+
+@keyframes slide {
+  0%,
+  25%,
+  100% {
+    left: 5%;
+  }
+
+  30%,
+  55% {
+    left: -85%;
+  }
+
+  60%,
+  85% {
+    left: -175%;
   }
 }
