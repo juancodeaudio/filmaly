@@ -39,7 +39,14 @@ const headerCategoryTitle = document.querySelector(
 const searchFormInput = document.querySelector("#searchForm input");
 const searchFormBtn = document.querySelector("#searchBtn");
 
-const trendingBtn = document.querySelector(".genericPreview-btn");
+const trendingBtn = document.querySelector(".trending-btn");
+const categoriesBtn = document.querySelector(".categories-btn");
+const categoriesAction = document.getElementById("cat28");
+const categoriesComedy = document.getElementById("cat35");
+const categoriesDrama = document.getElementById("cat18");
+const categoriesRomance = document.getElementById("cat10749");
+const categoriesTVShows = document.getElementById("cat1");
+const categoriesDocumentary = document.getElementById("cat99");
 
 const movieDetailTitle = document.querySelector(".movieDetail-title");
 const movieDetailDescription = document.querySelector(

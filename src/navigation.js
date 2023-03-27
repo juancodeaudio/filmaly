@@ -8,6 +8,27 @@ searchFormBtn.addEventListener("click", () => {
 trendingBtn.addEventListener("click", () => {
   location.hash = "#trends";
 });
+categoriesBtn.addEventListener("click", () => {
+  location.hash = "#category=";
+});
+categoriesAction.addEventListener("click", () => {
+  location.hash = "#category=28-Action";
+});
+categoriesComedy.addEventListener("click", () => {
+  location.hash = "#category=35-Comedy";
+});
+categoriesDrama.addEventListener("click", () => {
+  location.hash = "#category=18-Drama";
+});
+categoriesRomance.addEventListener("click", () => {
+  location.hash = "#category=10749-Romance";
+});
+categoriesTVShows.addEventListener("click", () => {
+  location.hash = "#category=28-Action";
+});
+categoriesDocumentary.addEventListener("click", () => {
+  location.hash = "#category=99-Documentary";
+});
 // arrowBtn.addEventListener('click', () => {
 //     history.back();
 //     // location.hash = '#home';
@@ -16,6 +37,7 @@ trendingBtn.addEventListener("click", () => {
 window.addEventListener("DOMContentLoaded", navigator, false);
 window.addEventListener("hashchange", navigator, false);
 window.addEventListener("scroll", infiniteScroll, false);
+getCategoriesPreview();
 
 function navigator() {
   console.log({ location });
@@ -163,6 +185,10 @@ function myListPage() {
   upcomingPreviewSection.classList.add("inactive");
   genericSection.classList.remove("inactive");
   movieDetailSection.classList.add("inactive");
+
+  headerCategoryTitle.innerHTML = "Mi lista";
+  getMyListMovies();
+  infiniteScroll = getPaginatedTrendingMovies;
 }
 function homePage() {
   console.log("HOME!!");
