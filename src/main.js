@@ -63,8 +63,14 @@ function createMovies(
     const movieTitle = document.createElement("p");
     movieTitle.innerHTML = movie.title;
 
-    const movieRating = document.createElement("p");
-    movieRating.innerHTML = "⭐️  " + movie.vote_average.toFixed(1);
+    const movieRating = document.createElement("div");
+    const movieStar = document.createElement("img");
+    movieStar.classList.add("movie-star");
+    movieStar.setAttribute("src", "./assets/star.svg");
+    const ratingText = document.createElement("p");
+    ratingText.innerHTML = movie.vote_average.toFixed(1);
+    movieRating.appendChild(movieStar);
+    movieRating.appendChild(ratingText);
 
     const movieImg = document.createElement("img");
     movieImg.classList.add("movie-img");
@@ -87,6 +93,7 @@ function createMovies(
     });
 
     const movieBtn = document.createElement("button");
+    movieBtn.innerHTML = "<img/>";
     movieBtn.classList.add("movie-btn");
     likedMoviesList()[movie.id] && movieBtn.classList.add("movie-btn--liked");
     movieBtn.addEventListener("click", () => {
@@ -133,8 +140,14 @@ function createMoviesLarge(
     const movieTitle = document.createElement("h3");
     movieTitle.innerHTML = movie.title;
 
-    const movieRating = document.createElement("p");
-    movieRating.innerHTML = `⭐️  ${movie.vote_average.toFixed(1)}  • ${year}`;
+    const movieRating = document.createElement("div");
+    const movieStar = document.createElement("img");
+    movieStar.classList.add("movie-star");
+    movieStar.setAttribute("src", "./assets/star.svg");
+    const ratingText = document.createElement("p");
+    ratingText.innerHTML = `${movie.vote_average.toFixed(1)}  • ${year}`;
+    movieRating.appendChild(movieStar);
+    movieRating.appendChild(ratingText);
 
     const movieImg = document.createElement("img");
     movieImg.classList.add("movie-img");
@@ -186,16 +199,7 @@ function createCategories(categories, container) {
     categoryTitle.classList.add("category-title");
     categoryTitle.setAttribute("id", `id${category.id}`);
     categoryTitle.addEventListener("click", () => {
-      if (selectedCategory) {
-        const singleCategory = document.getElementById(selectedCategory);
-        console.log("category:", singleCategory);
-        singleCategory.parentElement.classList.remove("selected-category");
-        console.log(selectedCategory);
-      }
       location.hash = `#category=${category.id}-${category.name}`;
-      selectedCategory = `id${category.id}`;
-      console.log(selectedCategory);
-      categoryContainer.classList.add("selected-category");
     });
     const categoryTitleText = document.createTextNode(category.name);
 
@@ -203,6 +207,11 @@ function createCategories(categories, container) {
     categoryContainer.appendChild(categoryTitle);
     container.appendChild(categoryContainer);
   });
+  if (selectedCategory) {
+    const singleCategory = document.getElementById(selectedCategory);
+    console.log("category:", selectedCategory);
+    singleCategory.parentElement.classList.add("selected-category");
+  }
 }
 
 //> Llamados a la API
@@ -245,8 +254,9 @@ async function getMoviesByCategory(id) {
   const movies = data.results;
   maxPage = data.total_pages;
 
+  getCategoriesPreview();
+
   createMovies(movies, genericSection, { lazyLoad: true, clean: true });
-  console.log(selectedCategory);
 }
 
 function getPaginatedMoviesByCategory(id) {
@@ -335,15 +345,11 @@ async function getPaginatedTrendingMovies() {
 async function getMovieById(id) {
   const { data: movie } = await api("movie/" + id);
 
-  const movieImgUrl = "https://image.tmdb.org/t/p/w500" + movie.poster_path;
-  headerSection.style.background = `
-        linear-gradient(
-            180deg,
-            rgba(0,0,0,0.35) 19.27%,
-            rgba(0,0,0,0) 29.17%
-        ),
-        url(${movieImgUrl})
-    `;
+  const movieImgUrl = "https://image.tmdb.org/t/p/w1280" + movie.backdrop_path;
+  posterBackground.style.background = `url(${movieImgUrl})`;
+  const movieImgUrlMain =
+    "https://image.tmdb.org/t/p/w1280" + movie.poster_path;
+  movieMainPoster.style.background = `url(${movieImgUrlMain})`;
 
   movieDetailTitle.textContent = movie.title;
   movieDetailDescription.textContent = movie.overview;
@@ -374,5 +380,5 @@ async function getMyListMovies() {
   const likedMovies = likedMoviesList();
 
   const moviesArray = Object.values(likedMovies);
-  createMovies(moviesArray, genericSection, { lazyLoad: true, clean: true });
+  createMovies(moviesArray, genericSection);
 }

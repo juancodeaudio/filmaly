@@ -13,6 +13,11 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script
+      src="https://kit.fontawesome.com/1ea794493d.js"
+      crossorigin="anonymous"
+    ></script>
+
     <link
       href="https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap"
       rel="stylesheet"
@@ -22,22 +27,66 @@
     <title>Filmaly</title>
   </head>
   <body>
+    <div class="aside-background"></div>
+    <aside class="aside-menu aside-menu--hidden">
+      <h1 class="aside-title"><a href="#">FILMALY</a></h1>
+      <!-- <h1 class="header-title header-title--categoryView inactive">Acción</h1> -->
+      <button class="aside-back-icon">
+        <img src="./assets/back.svg" alt="back icon" />
+      </button>
+      <ul class="aside-navbar">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#trends">TV SHOWS</a></li>
+
+        <li><a href="#trends">TRENDINGS</a></li>
+        <li><a href="#my-list">MY LIST</a></li>
+      </ul>
+
+      <div class="aside_social-media">
+        <a href="https://twitter.com/juancodeaudio" class="icon twitter">
+          <span><i class="fab fa-twitter"></i></span>
+        </a>
+        <a
+          href="https://instagram.com/juancodeaudio?igshid=YmMyMTA2M2Y="
+          class="icon instagram"
+        >
+          <span><i class="fab fa-instagram"></i></span>
+        </a>
+        <a href="https://github.com/juancodeaudio" class="icon github">
+          <span><i class="fab fa-github"></i></span>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/juancodeaudio/"
+          class="icon linkedin"
+        >
+          <span><i class="fab fa-linkedin"></i></span>
+        </a>
+      </div>
+    </aside>
+
     <header id="header" class="header-container">
       <!-- <span class="header-arrow inactive">&lt;</span> -->
-      <div class="header-burger"></div>
+      <button class="header-burger">
+        <img src="./assets/menu.svg" alt="menu icon" />
+      </button>
       <h1 class="header-title"><a href="#">FILMALY</a></h1>
       <!-- <h1 class="header-title header-title--categoryView inactive">Acción</h1> -->
       <ul class="header-navbar">
         <li><a href="#">HOME</a></li>
-        <li>TV SHOWS</li>
-        <li>MOVIES</li>
+        <li><a href="#trends">TV SHOWS</a></li>
+
         <li><a href="#trends">TRENDINGS</a></li>
         <li><a href="#my-list">MY LIST</a></li>
       </ul>
       <div class="header-options"></div>
       <form id="searchForm" class="header-searchForm">
-        <input type="text" placeholder="Vengadores" />
-        <button id="searchBtn">🔍</button>
+        <input type="text" placeholder="Search..." />
+        <button id="searchBtn">
+          <img src="./assets/search.svg" alt="search icon" />
+        </button>
+        <button id="openSearchBtn">
+          <img src="./assets/search.svg" alt="search icon" />
+        </button>
       </form>
     </header>
 
@@ -67,7 +116,7 @@
 
     <section id="trendingPreview" class="genericPreview-container">
       <div class="genericPreview-header">
-        <h2 class="genericPreview-title">Tendencias</h2>
+        <h2 class="genericPreview-title">Trendings</h2>
         <button class="genericPreview-btn trending-btn">Ver más</button>
       </div>
 
@@ -87,23 +136,23 @@
 
     <section id="categoriesTop" class="categoriesTop-container">
       <div class="genericPreview-header">
-        <h2 class="categoriesTop-title">Categorías</h2>
+        <h2 class="categoriesTop-title">Categories</h2>
         <button class="genericPreview-btn categories-btn">Ver más</button>
       </div>
       <!-- <h2 class="categoriesTop-title">Categorías</h2> -->
 
       <article class="categoriesTop-list">
-        <button id="cat28" class="categoryTop-container">Acción</button>
-        <button id="cat35" class="categoryTop-container">Comedia</button>
+        <button id="cat28" class="categoryTop-container">Action</button>
+        <button id="cat35" class="categoryTop-container">Comedy</button>
         <button id="cat18" class="categoryTop-container">Drama</button>
         <button id="cat10749" class="categoryTop-container">Romance</button>
         <button id="cat1" class="categoryTop-container">TV Shows</button>
-        <button id="cat99" class="categoryTop-container">Documentales</button>
+        <button id="cat99" class="categoryTop-container">Documentary</button>
       </article>
     </section>
 
     <section id="categoriesPreview" class="categoriesPreview-container">
-      <h2 class="categoriesPreview-title">Categorías</h2>
+      <h2 class="categoriesPreview-title">Categories</h2>
 
       <article class="categoriesPreview-list">
         <div class="category-container category-container--loading">
@@ -130,7 +179,7 @@
 
     <section id="liked" class="liked-container">
       <div class="liked-header">
-        <h2 class="liked-title">Películas Favoritas</h2>
+        <h2 class="liked-title">Favourites</h2>
       </div>
       <article class="liked-movieList">
         <div class="movie-container">
@@ -166,8 +215,8 @@
 
     <section id="upcomingPreview" class="genericPreview-container">
       <div class="genericPreview-header">
-        <h2 class="genericPreview-title">Proximamente</h2>
-        <button class="genericPreview-btn">Ver más</button>
+        <h2 class="genericPreview-title">Comming soon</h2>
+        <!-- <button class="genericPreview-btn">Ver más</button> -->
       </div>
 
       <article id="upcomingPreviewMovieList" class="genericPreview-movieList">
@@ -196,7 +245,14 @@
       </div>
     </section>
 
+    <section id="moviePoster" class="poster-background-container">
+      <div class="poster-background">
+        <div class="main-poster--blur"></div>
+      </div>
+    </section>
+
     <section id="movieDetail" class="movieDetail-container inactive">
+      <div class="movieDetail-main-poster"></div>
       <h1 class="movieDetail-title">Deadpool</h1>
       <span class="movieDetail-score">7.6</span>
       <p class="movieDetail-description">
@@ -229,7 +285,39 @@
       </article>
     </section>
 
-    <footer>Hecho con amor en Platzi por @juandc</footer>
+    <footer>
+      <div class="legend">
+        <p>
+          © All rights reserved | Made by
+          <a href="https://github.com/juancodeaudio">@juancodeaudio</a>
+          2023
+        </p>
+      </div>
+      <div class="footer_social-media">
+        <a href="https://twitter.com/juancodeaudio" class="icon twitter">
+          <div class="tooltip">Twitter</div>
+          <span><i class="fab fa-twitter"></i></span>
+        </a>
+        <a
+          href="https://instagram.com/juancodeaudio?igshid=YmMyMTA2M2Y="
+          class="icon instagram"
+        >
+          <div class="tooltip">Instagram</div>
+          <span><i class="fab fa-instagram"></i></span>
+        </a>
+        <a href="https://github.com/juancodeaudio" class="icon github">
+          <div class="tooltip">Github</div>
+          <span><i class="fab fa-github"></i></span>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/juancodeaudio/"
+          class="icon linkedin"
+        >
+          <div class="tooltip">LinkedIn</div>
+          <span><i class="fab fa-linkedin"></i></span>
+        </a>
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./src/hidden.js"></script>
