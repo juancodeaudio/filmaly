@@ -28,6 +28,9 @@ const movieDetailCategoriesList = document.querySelector(
 const relatedMoviesContainer = document.querySelector(
   ".relatedMovies-scrollContainer"
 );
+const streamingOptionsContainer = document.querySelector(
+  ".movieDetail-provider"
+);
 const likedMoviesListArticle = document.querySelector(".liked-movieList");
 
 // Elements
@@ -46,12 +49,15 @@ const searchFormBtn = document.querySelector("#searchBtn");
 const openSearchBtn = document.querySelector("#openSearchBtn");
 
 const trendingBtn = document.querySelector(".trending-btn");
+const categoriesPreviewTitle = document.querySelector(
+  ".categoriesPreview-title"
+);
 const categoriesBtn = document.querySelector(".categories-btn");
 const categoriesAction = document.getElementById("cat28");
 const categoriesComedy = document.getElementById("cat35");
 const categoriesDrama = document.getElementById("cat18");
 const categoriesRomance = document.getElementById("cat10749");
-const categoriesTVShows = document.getElementById("cat1");
+const categoriesAnimation = document.getElementById("cat16");
 const categoriesDocumentary = document.getElementById("cat99");
 const posterBackground = document.querySelector(".poster-background");
 const movieMainPoster = document.querySelector(".movieDetail-main-poster");

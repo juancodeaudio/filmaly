@@ -32,8 +32,8 @@ categoriesDrama.addEventListener("click", () => {
 categoriesRomance.addEventListener("click", () => {
   location.hash = "#category=10749-Romance";
 });
-categoriesTVShows.addEventListener("click", () => {
-  location.hash = "#category=28-Action";
+categoriesAnimation.addEventListener("click", () => {
+  location.hash = "#category=16-Animation";
 });
 categoriesDocumentary.addEventListener("click", () => {
   location.hash = "#category=99-Documentary";
@@ -94,6 +94,8 @@ function navigator() {
     searchPage();
   } else if (location.hash.startsWith("#movie=")) {
     movieDetailsPage();
+  } else if (location.hash.startsWith("#on-theaters")) {
+    onTheatersPage();
   } else if (location.hash.startsWith("#category=")) {
     categoriesPage();
   } else if (location.hash.startsWith("#my-list")) {
@@ -134,6 +136,31 @@ function trendsPage() {
   getTrendingMovies();
   infiniteScroll = getPaginatedTrendingMovies;
 }
+function onTheatersPage() {
+  console.log("TV-SHOWS!!");
+
+  headerSection.classList.remove("header-container--long");
+  headerSection.style.background = "";
+  // arrowBtn.classList.remove('inactive');
+  // arrowBtn.classList.remove('header-arrow--white');
+  headerTitle.classList.add("inactive");
+  headerCategoryTitle.classList.remove("inactive");
+  searchForm.classList.remove("inactive");
+
+  latestSection.classList.add("inactive");
+  trendingPreviewSection.classList.add("inactive");
+  categoriesTopSection.classList.add("inactive");
+  categoriesPreviewSection.classList.add("inactive");
+  likedMoviesSection.classList.add("inactive");
+  upcomingPreviewSection.classList.add("inactive");
+  genericSection.classList.remove("inactive");
+  moviePoster.classList.add("inactive");
+  movieDetailSection.classList.add("inactive");
+
+  headerCategoryTitle.innerHTML = "On Theaters";
+  getOnTheatersMovies();
+  infiniteScroll = getPaginatedTrendingMovies;
+}
 function searchPage() {
   console.log("SEARCH!!");
 
@@ -156,9 +183,10 @@ function searchPage() {
   movieDetailSection.classList.add("inactive");
 
   const [_, query] = location.hash.split("=");
-  getMoviesBySearch(query);
-  infiniteScroll = getPaginatedMoviesBySearch(query);
-  headerCategoryTitle.innerHTML = `Showing results for:  "${query}"`;
+  const fixedQuery = query.replace("%20", " ");
+  getMoviesBySearch(fixedQuery);
+  infiniteScroll = getPaginatedMoviesBySearch(fixedQuery);
+  headerCategoryTitle.innerHTML = `Showing results for:  "${fixedQuery}"`;
 }
 function movieDetailsPage() {
   console.log("MOVIE!!");
@@ -209,6 +237,9 @@ function categoriesPage() {
   const [categoryId, categoryName] = categoryData.split("-");
 
   headerCategoryTitle.innerHTML = categoryName;
+  categoriesPreviewTitle.innerHTML = categoryName
+    ? `Category - ${categoryName}`
+    : "Categories";
   selectedCategory = `id${categoryId}`;
   getMoviesByCategory(categoryId);
 

@@ -31,6 +31,10 @@ function likeMovie(movie) {
   }
 
   localStorage.setItem("liked_movies", JSON.stringify(likedMovies));
+
+  if (location.hash == "") {
+    homePage();
+  }
 }
 
 //> Utils
@@ -154,7 +158,7 @@ function createMoviesLarge(
     movieImg.setAttribute("alt", movie.title);
     movieImg.setAttribute(
       lazyLoad ? "data-img" : "src",
-      "https://image.tmdb.org/t/p/w1280" + movie.backdrop_path
+      "https://image.tmdb.org/t/p/original" + movie.backdrop_path
     );
     movieContainer.addEventListener("click", () => {
       location.hash = `#movie=${movie.id}`;
@@ -212,6 +216,17 @@ function createCategories(categories, container) {
     console.log("category:", selectedCategory);
     singleCategory.parentElement.classList.add("selected-category");
   }
+}
+
+function createStreamings(streamingOptions, container) {
+  streamingOptions.forEach((streaming) => {
+    console.log(`url(https://image.tmdb.org/t/p/w300${streaming.logo_path})`);
+    const streamingBtn = document.createElement("button");
+    streamingBtn.classList.add("streaming-btn");
+    streamingBtn.style.backgroundImage = `url(https://image.tmdb.org/t/p/w300${streaming.logo_path})`;
+
+    container.appendChild(streamingBtn);
+  });
 }
 
 //> Llamados a la API
@@ -323,6 +338,14 @@ async function getTrendingMovies() {
   createMovies(movies, genericSection, { lazyLoad: true, clean: true });
 }
 
+async function getOnTheatersMovies() {
+  const { data } = await api("movie/now_playing");
+  const movies = data.results;
+  maxPage = data.total_pages;
+
+  createMovies(movies, genericSection, { lazyLoad: true, clean: true });
+}
+
 async function getPaginatedTrendingMovies() {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
@@ -350,13 +373,29 @@ async function getMovieById(id) {
   const movieImgUrlMain =
     "https://image.tmdb.org/t/p/w1280" + movie.poster_path;
   movieMainPoster.style.background = `url(${movieImgUrlMain})`;
+  const year = movie.release_date.split("-")[0];
 
   movieDetailTitle.textContent = movie.title;
   movieDetailDescription.textContent = movie.overview;
-  movieDetailScore.textContent = movie.vote_average;
+  movieDetailScore.textContent = `${movie.vote_average.toFixed(1)} - ${year}`;
+  getStreamingOptions(id);
 
   createCategories(movie.genres, movieDetailCategoriesList);
   getRelatedMoviesById(id);
+}
+
+async function getStreamingOptions(id) {
+  const { data } = await api(`movie/${id}/watch/providers`);
+  const streamingOptions = data.results.CO
+    ? data.results.CO.flatrate
+    : undefined;
+  if (!!streamingOptions) {
+    streamingOptionsContainer.innerHTML = "";
+    createStreamings(streamingOptions, streamingOptionsContainer);
+    console.log(data.results.CO.flatrate);
+  } else {
+    streamingOptionsContainer.innerHTML = "No available streaming services";
+  }
 }
 
 async function getRelatedMoviesById(id) {
